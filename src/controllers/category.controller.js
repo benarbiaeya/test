@@ -1,11 +1,12 @@
-const service = require('../services/category.service');
+const service = require('../services/category.service.js');
+
 
 exports.createCategory = async (req, res) => {
   try {
     const result = await service.createCategory(req.body);
     res.status(201).json(result);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ error: err.message });
   }
 };
 
